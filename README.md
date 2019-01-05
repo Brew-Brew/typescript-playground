@@ -6,3 +6,8 @@
 ## this repo is typescript playground :fire:
 
 - save all of articles or projects about typescript for studying typescript :pencil:
+
+### react-typescript tutorials
+
+- https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+- https://github.com/Lemoncode/react-by-sample
