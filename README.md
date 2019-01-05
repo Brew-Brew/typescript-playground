@@ -11,3 +11,7 @@
 
 - https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
 - https://github.com/Lemoncode/react-by-sample
+
+### ts doc
+
+- https://ahnheejong.gitbook.io/ts-for-jsdev/
