@@ -6,17 +6,26 @@ interface Props {}
 
 interface State {
   userName: string;
+  editingUserName: string;
 }
 
 export class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.state = { userName: "defaultUserName" };
+    const defaultUserName = "defaultUserName";
+    this.state = {
+      userName: defaultUserName,
+      editingUserName: defaultUserName
+    };
   }
 
-  setUsernameState = (newName: string) => {
-    this.setState({ userName: newName });
+  setUsernameState = () => {
+    this.setState({ userName: this.state.editingUserName });
+  };
+
+  updateEditingName = (editingName: string): void => {
+    this.setState({ editingUserName: editingName });
   };
 
   public render() {
@@ -24,8 +33,9 @@ export class App extends React.Component<Props, State> {
       <>
         <HelloComponent userName={this.state.userName} />
         <NameEditComponent
-          initialUserName={this.state.userName}
-          onNameUpdated={this.setUsernameState}
+          editingUserName={this.state.editingUserName}
+          onEditingNameUpdated={this.updateEditingName}
+          onNameUpdateRequest={this.setUsernameState}
         />
       </>
     );
