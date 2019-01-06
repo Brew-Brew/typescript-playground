@@ -6,28 +6,16 @@ interface Props {
   onNameUpdateRequest: () => void;
 }
 
-export class NameEditComponent extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props);
-    // Watch out what would happen if we get this user name via an AJAX callback
-    // you will find a different implementatin on 05 sample
-  }
+export const NameEditComponent = (props: Props) => (
+  <div>
+    <label>Update Name:</label>
+    <input
+      value={props.editingUserName}
+      onChange={(e): void =>
+        props.onEditingNameUpdated((e.target as HTMLInputElement).value)
+      }
+    />
 
-  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.onEditingNameUpdated((e.target as HTMLInputElement).value);
-  };
-
-  public render() {
-    return (
-      <div>
-        <input value={this.props.editingUserName} onChange={this.onChange} />
-        <button
-          className="btn btn-default"
-          onClick={this.props.onNameUpdateRequest}
-        >
-          Change
-        </button>
-      </div>
-    );
-  }
-}
+    <button onClick={props.onNameUpdateRequest}>Change</button>
+  </div>
+);
