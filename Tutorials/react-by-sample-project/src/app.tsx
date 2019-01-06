@@ -15,8 +15,8 @@ export class App extends React.Component<Props, State> {
     this.state = { userName: "defaultUserName" };
   }
 
-  setUsernameState = event => {
-    this.setState({ userName: event.target.value });
+  setUsernameState = (newName: string) => {
+    this.setState({ userName: newName });
   };
 
   public render() {
@@ -24,8 +24,8 @@ export class App extends React.Component<Props, State> {
       <>
         <HelloComponent userName={this.state.userName} />
         <NameEditComponent
-          userName={this.state.userName}
-          onChange={this.setUsernameState}
+          initialUserName={this.state.userName}
+          onNameUpdated={this.setUsernameState}
         />
       </>
     );
