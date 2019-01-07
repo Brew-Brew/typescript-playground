@@ -1,6 +1,8 @@
 import * as React from "react";
 
 interface Props {
+  disable: boolean;
+  userName: string;
   editingUserName: string;
   onEditingNameUpdated: (newEditingName: string) => void;
   onNameUpdateRequest: () => void;
@@ -16,6 +18,12 @@ export const NameEditComponent = (props: Props) => (
       }
     />
 
-    <button onClick={props.onNameUpdateRequest}>Change</button>
+    <button
+      className="btn btn-default"
+      onClick={props.onNameUpdateRequest}
+      disabled={props.disable}
+    >
+      Change
+    </button>
   </div>
 );

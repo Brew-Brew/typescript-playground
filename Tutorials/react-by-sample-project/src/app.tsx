@@ -33,6 +33,12 @@ export class App extends React.Component<Props, State> {
       <>
         <HelloComponent userName={this.state.userName} />
         <NameEditComponent
+          disable={
+            !this.state.userName ||
+            this.state.userName === this.state.editingUserName ||
+            this.state.editingUserName === ""
+          }
+          userName={this.state.userName}
           editingUserName={this.state.editingUserName}
           onEditingNameUpdated={this.updateEditingName}
           onNameUpdateRequest={this.setUsernameState}
