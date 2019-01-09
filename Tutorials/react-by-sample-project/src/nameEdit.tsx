@@ -8,7 +8,9 @@ interface Props {
   onNameUpdateRequest: () => void;
 }
 
-export const NameEditComponent = (props: Props) => (
+export const NameEditComponent: React.StatelessComponent<Props> = (
+  props: Props
+) => (
   <div>
     <label>Update Name:</label>
     <input
