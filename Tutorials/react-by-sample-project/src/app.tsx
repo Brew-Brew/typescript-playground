@@ -2,6 +2,7 @@ import * as React from "react";
 import { HelloComponent } from "./hello";
 import { NameEditComponent } from "./nameEdit";
 import { SidebarComponent } from "./sidebar";
+import { MembersTableComponent } from "./membersTable";
 
 interface Props {}
 
@@ -66,6 +67,7 @@ export class App extends React.Component<Props, State> {
           onEditingNameUpdated={this.updateEditingName}
           onNameUpdateRequest={this.setUsernameState}
         />
+        <MembersTableComponent />
         <div style={{ float: "right" }}>
           <button onClick={this.toggleSidebarVisibility}>Toggle Sidebar</button>
         </div>
