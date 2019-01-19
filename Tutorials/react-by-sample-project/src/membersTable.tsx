@@ -2,6 +2,7 @@ import * as React from "react";
 import { MemberEntity } from "./model/member";
 import { memberAPI } from "./api/memberAPI";
 import { MemberRow } from "./memberRow";
+import { MemberHead } from "./memberHead";
 
 interface Props {}
 
@@ -22,7 +23,9 @@ export class MembersTableComponent extends React.Component<Props, State> {
   // Standard react lifecycle function:
   // https://facebook.github.io/react/docs/component-specs.html
   public componentDidMount() {
-    this.setState({ members: memberAPI.getAllMembers() });
+    memberAPI
+      .getAllMembers()
+      .then(members => this.setState({ members: members }));
   }
 
   public render() {
@@ -31,11 +34,7 @@ export class MembersTableComponent extends React.Component<Props, State> {
         <h2> Members Page</h2>
         <table className="table">
           <thead>
-            <tr>
-              <th>Avatar</th>
-              <th>Id</th>
-              <th>Name</th>
-            </tr>
+            <MemberHead />
           </thead>
           <tbody>
             {this.state.members.map((member: MemberEntity) => (
